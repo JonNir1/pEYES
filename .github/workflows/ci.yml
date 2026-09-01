@@ -33,3 +33,17 @@ jobs:
         run: pip install -e .
       - name: Run tests
         run: python -m unittest discover -s tests -v
+      - name: TEMP kaleido smoke test (kaleido-ci-smoketest branch only)
+        run: |
+          timeout 90 python -c "
+          import time
+          import kaleido
+          import plotly.graph_objects as go
+          t0 = time.time()
+          kaleido.get_chrome_sync()
+          print(f'get_chrome_sync() done in {time.time() - t0:.2f}s', flush=True)
+          fig = go.Figure(data=[go.Scatter(y=[1, 3, 2])])
+          t0 = time.time()
+          fig.write_image('smoke_test.png')
+          print(f'write_image() SUCCESS in {time.time() - t0:.2f}s', flush=True)
+          "

@@ -13,7 +13,7 @@ dependencies = [
     "numpy>=1.26,<3",
     "pandas>=2.2,<4",
     "scipy>=1.11,<2",
-    "plotly>=5.20,<8",
+    "plotly>=6.1.1,<8",
     "opencv-python>=4.9",
     "overrides>=7.7,<8",
     "requests>=2.32,<3",
@@ -25,9 +25,9 @@ dependencies = [
     "python-Levenshtein>=0.25,<1",
     "remodnav>=1.1,<2",
     "liac-arff>=2.4,<3",
-    # kaleido 0.2 hangs forever in fig.write_image(); see
-    # https://github.com/huji-hcnl/pEYES/issues/15
-    "kaleido==0.1.0post1",
+    # TEMP (kaleido-ci-smoketest branch, not for merging as-is): testing kaleido 1.x + get_chrome_sync()
+    # against real CI, per huji-hcnl/pEYES#15 and plotly/Kaleido#134 / #402.
+    "kaleido>=1.0,<2",
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
